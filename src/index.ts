@@ -24,7 +24,7 @@ export async function main() {
     const responses = await write(email);
     for (const response of responses) {
       console.dir({ original: email.newText, response: response.newText, to: response.to.map(a => a.address) })
-      const command = await askQuestion('Happy to proceed (y/n/s[kip]/s[kip]n[oread])? ');
+      const command = await askQuestion('Happy to proceed (y/n/s[kip]/s[kip]/s[kip]n[oread])? ');
       if (command === 's' || command === 'skip') {
         await markAsRead(email.uid);
         continue;
