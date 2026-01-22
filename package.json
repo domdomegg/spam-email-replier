@@ -16,7 +16,7 @@
   "author": "Adam Jones (domdomegg)",
   "dependencies": {
     "imap": "^0.8.19",
-    "mailparser": "^3.2.0",
+    "mailparser": "^3.9.1",
     "nodemailer": "^7.0.11"
   },
   "devDependencies": {
