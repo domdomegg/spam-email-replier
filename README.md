@@ -1,16 +1,14 @@
-# spam-emailer-replier
+# spam-email-replier
 
-If you can't beat them, join them! Automatically replies to spam emails.
+> **Archived.** This was a fun experiment and is no longer maintained.
 
-## Setup
+Automatically replies to spam/scam emails with plausible but nonsensical responses, wasting the spammer's time.
 
-1. `npm install`
-2. Add your credentials to `src/env.ts`
+## How it worked
 
-If you need to create some credentials, I recommend Outlook. It's legit enough to bait scammers, but doesn't have security measures that are as annoying for our purposes (e.g. Google will refuse to send out a bunch of emails sent out by a script connecting to it). If you are using Outlook and you get the error `LOGIN failed`, try visiting [account.live.com/activity]( https://account.live.com/activity), finding your session and clicking 'This was me', then trying again.
+1. Connected to an Outlook/Hotmail inbox via IMAP and fetched unseen emails
+2. Analysed each email and generated a contextual reply using hardcoded templates (e.g. filling out phishing forms with fake details, asking scammers to resend broken links, complaining about banking services)
+3. Presented each draft reply to the user for approval via a CLI prompt
+4. Sent approved replies via SMTP, with proper email threading headers
 
-## Usage
-
-Run `npm start`
-
-NB: some providers will add your IP to the email headers, so you may want to use a proxy, VPN or similar.
+Built with TypeScript, using `imap` for receiving, `nodemailer` for sending, and `mailparser` for parsing.
